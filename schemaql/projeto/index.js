@@ -23,12 +23,6 @@ const usuarios = [
         nome: "Maria Sogra",
         email: "maria@mail.com",
         idade: 60,
-    },
-    {
-        id: 6,
-        nome: "Maria Sogra",
-        email: "maria@mail.com",
-        idade: 60,
     },    
     ]
 
