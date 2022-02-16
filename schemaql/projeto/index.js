@@ -26,6 +26,11 @@ const usuarios = [
     },    
     ]
 
+const perfis = [
+    { id: 1, nome: "comum" },
+    { id:2, nome: "adminstrador"},
+]
+
 const typeDefs = gql`
      scalar Date
 
@@ -35,6 +40,12 @@ const typeDefs = gql`
         desconto: Float
         precoComDesconto: Float 
     }
+
+    type perfis {
+        id: Int 
+        nome: String 
+    }  
+
     type Usuario {
         id: ID
         nome: String!
@@ -42,7 +53,11 @@ const typeDefs = gql`
         idade: Int
         salario: Float
         vip: Boolean 
+    }
 
+    type Perfil {
+        id: ID
+        nome: String
     }
 
     # Pontos de entrada da sua API!
@@ -53,7 +68,11 @@ const typeDefs = gql`
         usuarioLogado: Usuario
         produtoEmDestaque: Produto
         numerosMegaSena: [Int!]! 
-        usuarios: [Usuario]   
+        usuarios: [Usuario]
+        usuario(id: ID): Usuario
+        perfis: [Perfil]
+        perfil(id: Int): Perfil        
+        
     }
 `
 const resolvers = {
@@ -108,7 +127,19 @@ const resolvers = {
         },
         usuarios() {
             return usuarios
-        }
+        },
+        usuario(_, { id }){
+            const selec = usuarios.filter(u => u.id == id)
+            return selec ? selec[0] : null 
+            
+        },
+        perfis() {
+            return perfis 
+        },
+        perfil(_, { id }) {
+            const seletor = perfis.filter(p => p.id === id)
+            return seletor ? seletor[0] : null 
+        }       
     }
 }
 
