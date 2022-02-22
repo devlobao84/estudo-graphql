@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require("apollo-server");
 const { importSchema } = require('graphql-import')
 const resolvers = require('./resolvers')
 
-// Servidor
+// Servidor agora para ajustar tudo 
 
 const resolvers = {
     
