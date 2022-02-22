@@ -16,5 +16,6 @@
     idade: Int
     salario: Float
     vip: Boolean
-    perfil: Perfil     
+    perfil: Perfil
+    status: UsuarioStatus     
   }

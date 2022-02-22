@@ -45,10 +45,10 @@ module.exports = {
         return selec ? selec[0] : null;
     },
     perfis() {
-        return Perfil;
+        return perfis;
     },
     perfil(_, { id }) {
-        const profile = Perfil.filter((p) => p.id == id);
+        const profile = perfis.filter((p) => p.id == id);
         return profile ? profile[0] : null;
     },
 }
