@@ -1,76 +1,11 @@
-const { ApolloServer, gql } = require('apollo-server')
+const { ApolloServer, gql } = require("apollo-server");
+const { importSchema } = require('graphql-import')
+const resolvers = require('./resolvers')
 
+// Servidor
 
-const usuarios = [
-    {
-        id: 1,
-        nome: "Priscila Amor",
-        email: "pri@mail.com",
-        idade: 31,
-        salario: 1550.00
-    }, {
-        id: 2,
-        nome: "Jonas Lobo",
-        email: "lobo@mail.com",
-        idade: 37,
-    }, {
-        id: 4,
-        nome: "Pietro Lobo",
-        email: "pietro@mail.com",
-        idade: 31,
-    }, {
-        id: 4,
-        nome: "Maria Sogra",
-        email: "maria@mail.com",
-        idade: 60,
-    },
-    {
-        id: 6,
-        nome: "Maria Sogra",
-        email: "maria@mail.com",
-        idade: 60,
-    },    
-    ]
-
-const typeDefs = gql`
-     scalar Date
-
-    type Produto {
-        nome: String!
-        preco: Float!
-        desconto: Float
-        precoComDesconto: Float 
-    }
-    type Usuario {
-        id: ID
-        nome: String!
-        email: String!
-        idade: Int
-        salario: Float
-        vip: Boolean 
-
-    }
-
-    # Pontos de entrada da sua API!
-    type Query {
-        ola: String  
-        horaAtual: Date    
-        saudacao: String 
-        usuarioLogado: Usuario
-        produtoEmDestaque: Produto
-        numerosMegaSena: [Int!]! 
-        usuarios: [Usuario]   
-    }
-`
 const resolvers = {
-    // Scalar o tipo da Query 
-    Produto: {
-        precoComDesconto(produto) {
-            if (produto.desconto) {
-                return produto.preco * (1 - produto.desconto)
-            } else {
-                return produto.preco
-            }
+    
         }
     },
 
@@ -118,12 +53,14 @@ const resolvers = {
     }
 }
 
+=======
+const schemaPath = './schema/index.graphql'
+>>>>>>> 96f471de95e379de00139a09bfbdaa839d0fc984
 const server = new ApolloServer({
-    typeDefs,
+    typeDefs: importSchema(schemaPath),
     resolvers
-
-})
+});
 
 server.listen().then(({ url }) => {
-    console.log(`Executando em ${url}`)
-})
+    console.log(`Executando em ${url}`);
+});
