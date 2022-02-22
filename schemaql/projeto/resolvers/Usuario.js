@@ -6,7 +6,7 @@ module.exports = {
     },
 
     perfil(usuario) {
-        const profile = Perfil.filter((p) => p.id === usuario.perfil_id);
+        const profile = perfil.filter((p) => p.id === usuario.perfil_id);
         return profile ? profile[0] : null;
     },
 }
