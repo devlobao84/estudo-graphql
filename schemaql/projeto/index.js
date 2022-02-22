@@ -94,7 +94,7 @@ const resolvers = {
                 idade: 37,
                 salario: 3000,
                 vip: true
-            }
+            }            
         },
         produtoEmDestaque() {
             return {
