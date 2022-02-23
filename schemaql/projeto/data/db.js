@@ -29,7 +29,7 @@ const usuarios = [
     },
     {
         id: nextid(),
-        nome: "Pietro Lobo",
+        nome: "Ferraz de Vasconcelos",
         email: "pietro@mail.com",
         idade: 31,
         perfil_id: 3,
