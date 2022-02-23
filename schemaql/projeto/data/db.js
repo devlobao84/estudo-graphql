@@ -1,4 +1,7 @@
-
+let id = 1
+function nextid() {
+    return id++
+}
 
 const perfis = [
     { id: 1, nome: "Perfil de uma pessoa jovem, ativa e cheia de ideias" },
@@ -8,7 +11,7 @@ const perfis = [
 
 const usuarios = [
     {
-        id: 1,
+        id: nextid(),
         nome: "Priscila Amor",
         email: "pri@mail.com",
         idade: 31,
@@ -17,7 +20,7 @@ const usuarios = [
         status: 'ATIVO'
     },
     {
-        id: 2,
+        id: nextid(),
         nome: "Jonas Lobo",
         email: "lobo@mail.com",
         idade: 37,
@@ -25,7 +28,7 @@ const usuarios = [
         status: 'INATIVO'
     },
     {
-        id: 3,
+        id: nextid(),
         nome: "Pietro Lobo",
         email: "pietro@mail.com",
         idade: 31,
@@ -33,7 +36,7 @@ const usuarios = [
         status: 'BLOQUEADO'
     },
     {
-        id: 4,
+        id: nextid(),
         nome: "Maria Sogra",
         email: "maria@mail.com",
         idade: 60,
@@ -42,4 +45,8 @@ const usuarios = [
     },
 ];
 
-module.exports = { usuarios, perfis }
+module.exports = {
+    usuarios,
+    perfis,
+    nextid
+}
